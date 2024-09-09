@@ -29,7 +29,7 @@ class AlignedDataset(BaseDataset):
             basename = os.path.splitext(os.path.basename(A_path))[0]
             print(A_path)
             print(basename)
-            C_list_path = glob.glob(os.path.join(self.dir_C, '*', basename + '.png'))
+            C_list_path = glob.glob(os.path.join(self.dir_C, basename + '.png'))
             print(C_list_path)
             self.C_list_paths.append(C_list_path)
 
