@@ -55,9 +55,9 @@ class AlignedDataset(BaseDataset):
             B_tensor = transform_B(B)
             
         ### input C
-        rand_index = np.random.randint(len(self.C_list_paths[index]))
-        C_path = self.C_list_paths[index][rand_index] 
-        C = Image.open(C_path).convert('RGB')
+        #rand_index = np.random.randint(len(self.C_list_paths[index]))
+        #C_path = self.C_list_paths[index][rand_index] 
+        C = Image.open(C_list_paths[index]).convert('RGB')
         transform_C = get_transform_sketch(self.opt, params)      
         C_tensor = transform_C(C)
  
