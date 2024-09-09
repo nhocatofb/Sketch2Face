@@ -30,7 +30,9 @@ class AlignedDataset(BaseDataset):
             C_list_path = glob.glob(os.path.join(self.dir_C, '*', basename + '.png'))
             self.C_list_paths.append(C_list_path)
 
-        self.dataset_size = len(self.A_paths) 
+        self.dataset_size = len(self.A_paths)
+        print(len(self.A_paths))
+        print(len(self.C_list_paths))
       
     def __getitem__(self, index):
         ### input A 
