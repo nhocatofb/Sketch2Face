@@ -31,8 +31,6 @@ class AlignedDataset(BaseDataset):
             self.C_list_paths.append(C_list_path)
 
         self.dataset_size = len(self.A_paths)
-        print(len(self.A_paths))
-        print(len(self.C_list_paths))
       
     def __getitem__(self, index):
         ### input A 
@@ -50,7 +48,9 @@ class AlignedDataset(BaseDataset):
             transform_B = get_transform(self.opt, params)      
             B_tensor = transform_B(B)
             
-        ### input C 
+        ### input C
+        print(self.C_list_paths[index])
+        print(len(self.C_list_paths[index]))
         rand_index = np.random.randint(len(self.C_list_paths[index]))
         C_path = self.C_list_paths[index][rand_index] 
         C = Image.open(C_path).convert('RGB')
