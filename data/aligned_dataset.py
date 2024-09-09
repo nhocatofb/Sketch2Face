@@ -31,6 +31,9 @@ class AlignedDataset(BaseDataset):
             self.C_list_paths.append(C_list_path)
 
         self.dataset_size = len(self.A_paths)
+
+        print(self.A_paths)
+        print(self.C_list_paths)
       
     def __getitem__(self, index):
         ### input A 
