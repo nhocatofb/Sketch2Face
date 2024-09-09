@@ -27,7 +27,10 @@ class AlignedDataset(BaseDataset):
         self.C_list_paths = []
         for A_path in self.A_paths:
             basename = os.path.splitext(os.path.basename(A_path))[0]
+            print(A_path)
+            print(basename)
             C_list_path = glob.glob(os.path.join(self.dir_C, '*', basename + '.png'))
+            print(C_list_path)
             self.C_list_paths.append(C_list_path)
 
         self.dataset_size = len(self.A_paths)
@@ -52,8 +55,6 @@ class AlignedDataset(BaseDataset):
             B_tensor = transform_B(B)
             
         ### input C
-        print(self.C_list_paths[index])
-        print(len(self.C_list_paths[index]))
         rand_index = np.random.randint(len(self.C_list_paths[index]))
         C_path = self.C_list_paths[index][rand_index] 
         C = Image.open(C_path).convert('RGB')
